@@ -5,7 +5,7 @@ import { logger } from '../shared/logger.js';
 import { xterm } from './shared/xterm.js';
 
 export function spawn(socket: SocketIO.Socket, args: string[]): void {
-  const cmd = ['-S', ...args];
+  const cmd = [...args];
   logger.debug('Spawning PTTY', { cmd });
   const term = pty.spawn('/usr/bin/env', cmd, xterm);
   const { pid } = term;
